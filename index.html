@@ -1,327 +1,1723 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Special Invitation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover the flavors and culinary heritage of CALABARZON, Philippines.">
+  <title>Savor CALABARZON | Love the Philippines</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;600&display=swap"
-        rel="stylesheet">
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-        :root {
-            --bg-deep: #3b0000;
-            --bg-mid: #6b0000;
-            --card: #f9f2e6;
-            --accent: #b22222;
-            --muted: #5a3535;
-        }
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: 'Cormorant Garamond', serif;
-            background:
-                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.08), transparent 40%),
-                radial-gradient(circle at 80% 30%, rgba(255, 200, 200, 0.08), transparent 40%),
-                linear-gradient(180deg, var(--bg-deep), var(--bg-mid));
-            overflow: hidden;
-        }
+  <style>
+    :root {
+      --navy: #123b35;
+      --green: #176b55;
+      --lime: #d6e8a6;
+      --cream: #fbf7ed;
+      --orange: #e77a42;
+      --ink: #23332e;
+      --muted: #68756e;
+    }
 
-        body::before,
-        body::after {
-            content: "";
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-            filter: blur(80px);
-            animation: floatGlow 10s infinite ease-in-out;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        body::before {
-            top: 10%;
-            left: 10%;
-        }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
 
-        body::after {
-            bottom: 10%;
-            right: 10%;
-            animation-delay: 3s;
-        }
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+    }
 
-        @keyframes floatGlow {
+    h1, h2, h3, .navbar-brand {
+      font-family: "Playfair Display", serif;
+    }
 
-            0%,
-            100% {
-                transform: translateY(0) scale(1);
-            }
+    /* NAVIGATION */
+    .navbar {
+      background: rgba(18, 59, 53, 0.97);
+      backdrop-filter: blur(10px);
+    }
 
-            50% {
-                transform: translateY(-30px) scale(1.2);
-            }
-        }
+    .navbar-brand {
+      font-weight: 700;
+    }
 
-        .invitation-card {
-            position: relative;
-            background: linear-gradient(180deg, #fff, var(--card));
-            max-width: 1000px;
-            width: min(90%, 1000px);
-            padding: 100px 80px;
-            border-radius: 22px;
-            text-align: center;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            animation: fadeIn 1s ease forwards;
-            margin: 0 auto;
-        }
+    .brand-mark {
+      color: var(--lime);
+    }
 
-        .ribbon {
-            position: absolute;
-            top: -18px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--accent);
-            color: white;
-            padding: 10px 28px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            border-radius: 6px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
+    .nav-link {
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 600;
+    }
 
-        .ribbon::before,
-        .ribbon::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            border-width: 10px;
-            border-style: solid;
-            border-color: var(--accent) transparent transparent transparent;
-        }
+    .nav-link:hover {
+      color: var(--lime);
+    }
 
-        .ribbon::before {
-            left: 0;
-        }
+    .btn-lime {
+      background: var(--lime);
+      color: var(--navy);
+      border: none;
+      border-radius: 50px;
+      padding: 12px 22px;
+      font-weight: 700;
+      transition: 0.3s;
+    }
 
-        .ribbon::after {
-            right: 0;
-        }
+    .btn-lime:hover {
+      background: #e6f1c7;
+      color: var(--navy);
+      transform: translateY(-3px);
+    }
 
-        .invited-text {
-            color: var(--accent);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-size: 1.8rem;
-            margin-top: 20px;
-            animation: fadeUp 1s ease;
-        }
+    .btn-outline-light {
+      border-radius: 50px;
+      padding: 12px 22px;
+    }
 
-        .main-title {
-            font-family: 'Great Vibes', cursive;
-            font-size: 5.5rem;
-            color: var(--accent);
-            margin: 20px 0;
-            transition: 0.3s;
-            text-shadow: 0 0 10px rgba(178, 34, 34, 0.3);
-        }
+    /* HERO SECTION */
+    .hero {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      color: white;
+      background:
+        linear-gradient(
+          100deg,
+          rgba(9, 38, 34, 0.90),
+          rgba(9, 38, 34, 0.55),
+          rgba(9, 38, 34, 0.15)
+        ),
+        url("images/calabarzon-hero.jpg") center/cover no-repeat,
+        #315d4e;
+    }
 
-        .main-title:hover {
-            text-shadow: 0 0 25px rgba(178, 34, 34, 0.6);
-            transform: scale(1.03);
-        }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
 
-        .hosted,
-        .description {
-            color: var(--muted);
-            font-size: 1.1rem;
-            line-height: 1.8;
-            opacity: 0;
-            animation: fadeUp 1.2s ease forwards;
-        }
+    .eyebrow {
+      color: var(--lime);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+      font-weight: 700;
+    }
 
-        .description {
-            animation-delay: 0.3s;
-        }
+    .hero h1 {
+      font-size: clamp(3rem, 7vw, 6.5rem);
+      line-height: 1;
+      letter-spacing: -2px;
+      margin: 25px 0;
+    }
 
-        .sparkle {
-            position: absolute;
-            color: white;
-            font-size: 18px;
-            animation: twinkle 3s infinite ease-in-out;
-        }
+    .hero h1 em {
+      color: var(--lime);
+      font-style: normal;
+    }
 
-        .sparkle:nth-child(1) {
-            top: 5%;
-            left: 10%;
-        }
+    .hero p {
+      max-width: 600px;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
 
-        .sparkle:nth-child(2) {
-            top: 15%;
-            right: 8%;
-            animation-delay: 1s;
-        }
+    .hero-note {
+      margin-top: 30px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.8);
+    }
 
-        .sparkle:nth-child(3) {
-            bottom: 15%;
-            left: 12%;
-            animation-delay: 2s;
-        }
+    /* PROVINCES */
+    .province-strip {
+      background: var(--lime);
+      padding: 20px 0;
+    }
 
-        .sparkle:nth-child(4) {
-            bottom: 10%;
-            right: 12%;
-            animation-delay: 1.5s;
-        }
+    .province-item {
+      text-align: center;
+      padding: 12px;
+      border-right: 1px solid rgba(18, 59, 53, 0.18);
+    }
 
-        @keyframes twinkle {
+    .province-item:last-child {
+      border-right: none;
+    }
 
-            0%,
-            100% {
-                opacity: 0.2;
-                transform: scale(0.8);
-            }
+    .province-item strong {
+      display: block;
+      color: var(--navy);
+      font-family: "Playfair Display", serif;
+      font-size: 1.2rem;
+    }
 
-            50% {
-                opacity: 1;
-                transform: scale(1.3);
-            }
-        }
+    .province-item small {
+      color: #476258;
+    }
 
-        .confetti {
-            position: absolute;
-            top: -10px;
-            width: 8px;
-            height: 8px;
-            background: white;
-            opacity: 0.7;
-            animation: fall linear infinite;
-        }
+    /* GENERAL SECTIONS */
+    .section-pad {
+      padding: 90px 0;
+    }
 
-        @keyframes fall {
-            to {
-                transform: translateY(110vh) rotate(360deg);
-            }
-        }
+    .section-kicker {
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
 
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
+    .section-title {
+      font-size: clamp(2.3rem, 4.5vw, 4rem);
+      line-height: 1.1;
+      letter-spacing: -1px;
+    }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    .section-intro {
+      color: var(--muted);
+      line-height: 1.85;
+    }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.98);
-            }
+    /* MISSION AND VISION */
+    .mission-card {
+      background: white;
+      border-radius: 24px;
+      padding: clamp(25px, 4vw, 45px);
+      height: 100%;
+      box-shadow: 0 15px 45px rgba(27, 58, 46, 0.06);
+      border: 1px solid rgba(18, 59, 53, 0.07);
+      transition: transform 0.3s ease;
+    }
 
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
+    .mission-card:hover {
+      transform: translateY(-6px);
+    }
 
-        .footer {
-            margin-top: 40px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            color: var(--accent);
-        }
+    /* CUISINE CARDS */
+    .dish-section {
+      background: #f2eee2;
+    }
 
-        .map-link {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 12px 24px;
-            background: var(--accent);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1rem;
-            transition: 0.3s;
-            box-shadow: 0 5px 15px rgba(178, 34, 34, 0.3);
-        }
+    .dish-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      height: 100%;
+      box-shadow: 0 10px 35px rgba(20, 50, 40, 0.07);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
 
-        .map-link:hover {
-            background: #8b1a1a;
-            box-shadow: 0 8px 20px rgba(178, 34, 34, 0.5);
-            transform: translateY(-2px);
-        }
+    .dish-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 45px rgba(20, 50, 40, 0.13);
+    }
 
-        @media(max-width:600px) {
-            .main-title {
-                font-size: 3rem;
-            }
+    .dish-image {
+      height: 250px;
+      position: relative;
+      overflow: hidden;
+      background: #dfe7d5;
+    }
 
-            .invitation-card {
-                padding: 30px;
-            }
-        }
-    </style>
+    .dish-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      cursor: zoom-in;
+    }
+
+    .dish-card:hover .dish-image img {
+      transform: scale(1.06);
+    }
+
+    /* IMAGE PLACEHOLDER */
+    .image-placeholder {
+      width: 100%;
+      height: 100%;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      color: #45645a;
+      background: linear-gradient(135deg, #e8eddb, #d2e0c9);
+    }
+
+    .image-placeholder .camera {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .image-placeholder strong {
+      font-family: "Playfair Display", serif;
+      font-size: 19px;
+    }
+
+    .image-placeholder small {
+      margin-top: 8px;
+      max-width: 230px;
+    }
+
+    .province-tag {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      border-radius: 50px;
+      padding: 7px 13px;
+      background: var(--lime);
+      color: var(--navy);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 800;
+      z-index: 2;
+    }
+
+    .dish-body {
+      padding: 25px;
+    }
+
+    .dish-number {
+      color: var(--orange);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .dish-body h3 {
+      font-size: 27px;
+      margin: 10px 0;
+    }
+
+    .dish-body p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .dish-detail {
+      border-top: 1px solid #e8e8df;
+      padding-top: 15px;
+      margin-top: 15px;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .dish-detail b {
+      color: var(--green);
+    }
+
+    /* STORY SECTION */
+    .story-band {
+      background: var(--navy);
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story-band .section-kicker {
+      color: var(--lime);
+    }
+
+    .story-band .section-intro {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .story-quote {
+      border-left: 3px solid var(--lime);
+      padding-left: 20px;
+      font-family: "Playfair Display", serif;
+      font-size: 23px;
+      line-height: 1.6;
+    }
+
+    /* CALL TO ACTION */
+    .cta-panel {
+      background: var(--lime);
+      border-radius: 25px;
+      padding: clamp(30px, 5vw, 60px);
+    }
+
+    .cta-panel p {
+      color: #4b6456;
+      max-width: 600px;
+      line-height: 1.8;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0b2e29;
+      color: rgba(255, 255, 255, 0.7);
+      padding: 30px 0;
+      font-size: 13px;
+    }
+
+    footer a {
+      color: var(--lime);
+      text-decoration: none;
+    }
+
+    /* SCROLL ANIMATION */
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 {
+      transition-delay: 0.12s;
+    }
+
+    .delay-2 {
+      transition-delay: 0.24s;
+    }
+
+    /* FLOATING ANIMATION */
+    @keyframes drift {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .floating {
+      animation: drift 5s ease-in-out infinite;
+    }
+
+    /* IMAGE LIGHTBOX */
+    .image-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 25px;
+      background: rgba(9, 29, 23, 0.94);
+      backdrop-filter: blur(8px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .image-lightbox.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .image-lightbox img {
+      display: block;
+      max-width: 92%;
+      max-height: 85vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 20px 70px rgba(0, 0, 0, 0.5);
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+    }
+
+    .image-lightbox.active img {
+      transform: scale(1);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 28px;
+      color: white;
+      background: transparent;
+      border: none;
+      font-size: 42px;
+      line-height: 1;
+      cursor: pointer;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .lightbox-close:hover {
+      color: var(--lime);
+      transform: scale(1.1);
+    }
+
+    .lightbox-caption {
+      position: absolute;
+      bottom: 18px;
+      left: 15px;
+      right: 15px;
+      color: white;
+      text-align: center;
+      font-size: 14px;
+    }
+    
+/* ABOUT US SECTION */
+.about-section {
+  background: var(--cream);
+}
+
+.about-intro {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.member-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 100%;
+  border: 1px solid rgba(18, 59, 53, 0.08);
+  box-shadow: 0 10px 35px rgba(20, 50, 40, 0.07);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.member-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 20px 40px rgba(20, 50, 40, 0.13);
+}
+
+.member-photo {
+  height: 270px;
+  background: linear-gradient(135deg, #e8eddb, #d2e0c9);
+  overflow: hidden;
+  position: relative;
+}
+
+.member-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.member-card:hover .member-photo img {
+  transform: scale(1.05);
+}
+
+.member-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #45645a;
+  text-align: center;
+  padding: 20px;
+}
+
+.member-placeholder .camera {
+  font-size: 38px;
+  margin-bottom: 12px;
+}
+
+.member-placeholder strong {
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+}
+
+.member-placeholder small {
+  margin-top: 8px;
+}
+
+.member-info {
+  padding: 24px;
+  text-align: center;
+}
+
+.member-info h3 {
+  font-size: 23px;
+  margin-bottom: 8px;
+}
+
+.member-role {
+  display: inline-block;
+  background: var(--lime);
+  color: var(--navy);
+  padding: 6px 13px;
+  border-radius: 50px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.member-info p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+.group-photo-panel {
+  background: var(--navy);
+  border-radius: 25px;
+  overflow: hidden;
+  color: white;
+}
+
+.group-photo {
+  min-height: 300px;
+  background: #dfe7d5;
+  position: relative;
+  overflow: hidden;
+}
+
+.group-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  object-fit: cover;
+}
+
+.group-photo-placeholder {
+  min-height: 300px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 25px;
+  color: #45645a;
+  background: linear-gradient(135deg, #e8eddb, #d2e0c9);
+}
+
+.group-photo-placeholder .camera {
+  font-size: 45px;
+  margin-bottom: 12px;
+}
+
+.group-photo-placeholder strong {
+  font-family: "Playfair Display", serif;
+  font-size: 23px;
+}
+
+.group-description {
+  padding: clamp(25px, 4vw, 45px);
+}
+
+.group-description p {
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.85;
+}
+
+/* REFERENCES SECTION */
+.references-section {
+  background: #f2eee2;
+}
+
+.reference-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  height: 100%;
+  border: 1px solid rgba(18, 59, 53, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.reference-card:hover {
+  transform: translateY(-5px);
+}
+
+.reference-number {
+  color: var(--orange);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.reference-card h3 {
+  font-size: 21px;
+  margin: 12px 0;
+}
+
+.reference-card p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.reference-card a {
+  color: var(--green);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+.reference-card a:hover {
+  color: var(--orange);
+  text-decoration: underline;
+}
+
+.reference-note {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+@media (max-width: 767.98px) {
+  .member-photo {
+    height: 250px;
+  }
+
+  .group-photo,
+  .group-photo img,
+  .group-photo-placeholder {
+    min-height: 240px;
+  }
+}
+
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 767.98px) {
+      .hero {
+        min-height: 78vh;
+        background-position: 60% center;
+      }
+
+      .section-pad {
+        padding: 65px 0;
+      }
+
+      .province-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(18, 59, 53, 0.15);
+      }
+
+      .province-item:last-child {
+        border-bottom: none;
+      }
+
+      .dish-image {
+        height: 230px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .image-lightbox {
+        padding: 15px;
+      }
+
+      .image-lightbox img {
+        max-width: 100%;
+        max-height: 78vh;
+      }
+
+      .lightbox-close {
+        top: 15px;
+        right: 18px;
+      }
+    }
+
+    /* ACCESSIBILITY */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <div class="sparkle">✦</div>
-    <div class="sparkle">✦</div>
-    <div class="sparkle">✦</div>
-    <div class="sparkle">✦</div>
-
-    <script>
-        for (let i = 0; i < 25; i++) {
-            let confetti = document.createElement("div");
-            confetti.classList.add("confetti");
-            confetti.style.left = Math.random() * 100 + "vw";
-            confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
-            confetti.style.background = ["#fff", "#ffd1d1", "#ffb6b6", "#ffe9c9"][Math.floor(Math.random() * 4)];
-            document.body.appendChild(confetti);
-        }
-    </script>
-
+  <!-- NAVIGATION BAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
     <div class="container">
-        <div class="invitation-card">
 
-            <div class="ribbon"></div>
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#home">
+        Lasang Timog
+      </a>
 
-            <p class="invited-text">You're Invited To</p>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNav"
+        aria-controls="mainNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-            <h1 class="main-title">Ria's Thanksgiving</h1>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
 
-            <p class="hosted">
-                Located at Laurel St., Quiling, Talisay, Batangas
+          <li class="nav-item">
+            <a class="nav-link" href="#story">Our Story</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#dishes">Local Flavors</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#mission">Mission & Vision</a>
+          </li>
+
+          
+<li class="nav-item">
+  <a class="nav-link" href="#about-us">About Us</a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link" href="#references">References</a>
+</li>
+
+
+          <li class="nav-item ms-lg-2">
+            <a class="btn btn-lime btn-sm px-4" href="#dishes">
+              Explore the Table ↗
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="hero" id="home">
+    <div class="container hero-content">
+
+      <div class="eyebrow floating">
+        Love the flavors of the Philippines
+      </div>
+
+      <h1>
+        A region to explore.<br>
+        <em>Flavors to remember.</em>
+      </h1>
+
+      <p>
+        Take a delicious journey through CALABARZON, where every dish
+        tells a story of place, people, and Filipino tradition.
+      </p>
+
+      <div class="d-flex flex-wrap gap-3 mt-4">
+        <a class="btn btn-lime" href="#dishes">
+          Discover local cuisine ↗
+        </a>
+
+        <a class="btn btn-outline-light" href="#story">
+          Get to know the region
+        </a>
+      </div>
+
+      <div class="hero-note">
+        Cavite · Laguna · Batangas · Rizal · Quezon
+      </div>
+
+    </div>
+  </header>
+
+  <!-- FIVE PROVINCES -->
+  <section class="province-strip">
+    <div class="container">
+      <div class="row row-cols-2 row-cols-md-5 g-0">
+
+        <div class="col province-item">
+          <strong>Cavite</strong>
+          <small>Coastal character</small>
+        </div>
+
+        <div class="col province-item">
+          <strong>Laguna</strong>
+          <small>Sweet traditions</small>
+        </div>
+
+        <div class="col province-item">
+          <strong>Batangas</strong>
+          <small>Comfort in a bowl</small>
+        </div>
+
+        <div class="col province-item">
+          <strong>Rizal</strong>
+          <small>Heritage kakanin</small>
+        </div>
+
+        <div class="col province-item">
+          <strong>Quezon</strong>
+          <small>Festive flavors</small>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- INTRODUCTION -->
+    <section class="section-pad" id="story">
+      <div class="container">
+
+        <div class="row align-items-end g-4 mb-5">
+
+          <div class="col-lg-7 reveal">
+            <div class="section-kicker">A taste of place</div>
+
+            <h2 class="section-title">
+              More than food.<br>
+              It's our <span style="color: var(--green)">heritage.</span>
+            </h2>
+          </div>
+
+          <div class="col-lg-5 reveal delay-1">
+            <p class="section-intro mb-0">
+              CALABARZON brings together five provinces, each with its
+              own beloved delicacies and food traditions. From savory
+              noodles to sweet coconut pastries and rice cakes, these
+              local flavors offer a delicious way to experience Filipino
+              culture.
             </p>
-             <p class="hosted">
-               Miserali's Residence
-            </p>
-
-
-            <p class="description">
-                A Thanksgiving Celebration in Honor of Ria’s success in the CPA Licensure Examination. You are
-                respectfully invited to join us in a celebration. We look forward to sharing this joyous moment with
-                you.
-            </p>
-
-            <div class="row mt-4 footer">
-                <div class="col-6">June 27, 2026</div>
-                <div class="col-6">5:00 PM</div>
-            </div>
+          </div>
 
         </div>
+
+        <!-- MISSION AND VISION -->
+        <div class="row g-4">
+
+          <div class="col-md-6 reveal">
+            <div class="mission-card">
+              <h3 class="h2 mb-3">Mission</h3>
+              <p class="section-intro mb-0">
+                To showcase CALABARZON’s diverse cuisine, preserve
+                culinary traditions, promote local delicacies, and
+                introduce the region’s authentic flavors to the world.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 reveal delay-1">
+            <div class="mission-card">
+              <h3 class="h2 mb-3">Vision</h3>
+              <p class="section-intro mb-0">
+                To become a global platform celebrating CALABARZON’s
+                culinary heritage, inspiring appreciation for its local
+                flavors, traditions, and Filipino cultural identity.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCAL CUISINES -->
+    <section class="section-pad dish-section" id="dishes">
+      <div class="container">
+
+        <div class="row align-items-end g-3 mb-5">
+          <div class="col-lg-8 reveal">
+            <div class="section-kicker">
+              Five provinces, five must-try flavors
+            </div>
+
+            <h2 class="section-title">
+              Pull up a chair.<br>
+              Let's <span style="color: var(--green)">eat local.</span>
+            </h2>
+          </div>
+        </div>
+
+        <div class="row g-4">
+
+          <!-- 1. CAVITE -->
+          <div class="col-md-6 col-xl-4 reveal">
+            <article class="dish-card">
+
+              <div class="dish-image">
+                <img
+                  src="images/cavite.jpg"
+                  alt="Pancit Pusit from Cavite"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+
+                <div class="image-placeholder">
+                  <div class="camera">＋</div>
+                  <strong>Add Pancit Pusit Photo</strong>
+                  <small>Save your photo as cavite.jpg in the images folder.</small>
+                </div>
+
+                <span class="province-tag">Cavite</span>
+              </div>
+
+              <div class="dish-body">
+                <div class="dish-number">01 / COASTAL CLASSIC</div>
+                <h3>Pancit Pusit</h3>
+
+                <p>
+                  A signature dish from Cavite City, this striking noodle
+                  dish gets its deep black color from squid ink. Garlic,
+                  onion, and seasonings build its savory seafood flavor,
+                  often finished with chicharon and herbs.
+                </p>
+
+                <div class="dish-detail">
+                  <b>Food story</b><br>
+                  Rooted in Cavite's coastal food culture.
+                </div>
+
+                <div class="dish-detail">
+                  <b>Where to try</b><br>
+                  Local eateries in Cavite City, including Asiong’s Carinderia.
+                </div>
+              </div>
+
+            </article>
+          </div>
+
+          <!-- 2. LAGUNA -->
+          <div class="col-md-6 col-xl-4 reveal delay-1">
+            <article class="dish-card">
+
+              <div class="dish-image">
+                <img
+                  src="images/laguna.jpg"
+                  alt="Golden Buko Pie from Laguna"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+
+                <div class="image-placeholder">
+                  <div class="camera">＋</div>
+                  <strong>Add Buko Pie Photo</strong>
+                  <small>Save your photo as laguna.jpg in the images folder.</small>
+                </div>
+
+                <span class="province-tag">Laguna</span>
+              </div>
+
+              <div class="dish-body">
+                <div class="dish-number">02 / SWEET FAVORITE</div>
+                <h3>Buko Pie</h3>
+
+                <p>
+                  This much-loved pastry from Los Baños pairs a golden,
+                  flaky crust with a milky filling packed with tender
+                  young coconut meat. It became a popular pasalubong
+                  and a sweet taste of Laguna.
+                </p>
+
+                <div class="dish-detail">
+                  <b>Food story</b><br>
+                  Popularized by the Pahud sisters in Los Baños.
+                </div>
+
+                <div class="dish-detail">
+                  <b>Where to try</b><br>
+                  Pasalubong shops, native bakeries, and roadside stops
+                  around Laguna.
+                </div>
+              </div>
+
+            </article>
+          </div>
+
+          <!-- 3. BATANGAS -->
+          <div class="col-md-6 col-xl-4 reveal delay-2">
+            <article class="dish-card">
+
+              <div class="dish-image">
+                <img
+                  src="images/batangas.jpg"
+                  alt="A hearty bowl of Batangas Lomi"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+
+                <div class="image-placeholder">
+                  <div class="camera">＋</div>
+                  <strong>Add Batangas Lomi Photo</strong>
+                  <small>Save your photo as batangas.jpg in the images folder.</small>
+                </div>
+
+                <span class="province-tag">Batangas</span>
+              </div>
+
+              <div class="dish-body">
+                <div class="dish-number">03 / COMFORT IN A BOWL</div>
+                <h3>Batangas Lomi</h3>
+
+                <p>
+                  Thick, comforting soup made with fresh miki noodles
+                  in a rich pork broth. It is commonly topped with
+                  ingredients such as kikiam, pork meatballs, liver,
+                  egg, and spring onion.
+                </p>
+
+                <div class="dish-detail">
+                  <b>Food story</b><br>
+                  Associated with Lipa City and the story of To Kim Eng
+                  and Lipa Panciteria.
+                </div>
+
+                <div class="dish-detail">
+                  <b>Where to try</b><br>
+                  Lomi houses in Lipa City and nearby towns.
+                </div>
+              </div>
+
+            </article>
+          </div>
+
+          <!-- 4. RIZAL -->
+          <div class="col-md-6 col-xl-6 reveal">
+            <article class="dish-card">
+
+              <div class="dish-image">
+                <img
+                  src="images/rizal.jpg"
+                  alt="Traditional Suman rice cakes"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+
+                <div class="image-placeholder">
+                  <div class="camera">＋</div>
+                  <strong>Add Suman Photo</strong>
+                  <small>Save your photo as rizal.jpg in the images folder.</small>
+                </div>
+
+                <span class="province-tag">Rizal</span>
+              </div>
+
+              <div class="dish-body">
+                <div class="dish-number">04 / TRADITIONAL KAKANIN</div>
+                <h3>Suman</h3>
+
+                <p>
+                  A classic Filipino rice cake made from glutinous rice,
+                  steamed or cooked and wrapped in leaves. Its texture
+                  is sticky yet soft, with a gentle flavor that can be
+                  sweet or unsweetened.
+                </p>
+
+                <div class="dish-detail">
+                  <b>Food story</b><br>
+                  A traditional rice delicacy with roots in pre-colonial
+                  food traditions.
+                </div>
+
+                <div class="dish-detail">
+                  <b>Where to try</b><br>
+                  Public markets, kakanin stalls, bakeries, and local fiestas.
+                </div>
+              </div>
+
+            </article>
+          </div>
+
+          <!-- 5. QUEZON -->
+          <div class="col-md-6 col-xl-6 reveal delay-1">
+            <article class="dish-card">
+
+              <div class="dish-image">
+                <img
+                  src="images/quezon.jpg"
+                  alt="Pancit Habhab served on banana leaves"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+
+                <div class="image-placeholder">
+                  <div class="camera">＋</div>
+                  <strong>Add Pancit Habhab Photo</strong>
+                  <small>Save your photo as quezon.jpg in the images folder.</small>
+                </div>
+
+                <span class="province-tag">Quezon</span>
+              </div>
+
+              <div class="dish-body">
+                <div class="dish-number">05 / A LOCAL EXPERIENCE</div>
+                <h3>Pancit Habhab</h3>
+
+                <p>
+                  Lucban's famous stir-fried noodles combine miki Lucban
+                  with pork, shrimp, and vegetables. Served on banana
+                  leaves with vinegar, it is traditionally eaten without
+                  utensils. The word “habhab” refers to eating directly
+                  with the mouth.
+                </p>
+
+                <div class="dish-detail">
+                  <b>Food story</b><br>
+                  A well-loved merienda and street food, especially
+                  during the Pahiyas Festival.
+                </div>
+
+                <div class="dish-detail">
+                  <b>Where to try</b><br>
+                  Lucban, Quezon, including Old Center Panciteria.
+                </div>
+              </div>
+
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CULINARY HERITAGE -->
+    <section class="section-pad story-band" id="mission">
+      <div class="container position-relative">
+
+        <div class="row align-items-center g-5">
+
+          <div class="col-lg-7 reveal">
+            <div class="section-kicker">
+              A delicious way to discover the Philippines
+            </div>
+
+            <h2 class="section-title mb-4">
+              Every bite carries<br>
+              a little piece of home.
+            </h2>
+
+            <p class="section-intro">
+              Food brings us closer to the stories, places, and people
+              that shape a region. By celebrating CALABARZON's local
+              delicacies, we help keep culinary traditions alive and
+              invite more people to experience the richness of Filipino
+              culture.
+            </p>
+          </div>
+
+          <div class="col-lg-5 reveal delay-1">
+            <div class="story-quote">
+              “Discover the place. Meet the people. Fall in love with
+              every flavor.”
+            </div>
+
+            <p class="mt-4 text-white-50">
+              Love the Philippines, one local dish at a time.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section class="section-pad">
+      <div class="container">
+
+        <div class="cta-panel reveal">
+          <div class="row align-items-center g-4">
+
+            <div class="col-lg-8">
+              <div class="section-kicker">
+                Your next food trip starts here
+              </div>
+
+              <h2 class="section-title mb-3">
+                Come hungry.<br>
+                Leave with a story.
+              </h2>
+
+              <p class="mb-0">
+                From Cavite's savory seafood noodles to Quezon's lively
+                street-food tradition, let CALABARZON inspire your next
+                Filipino food adventure.
+              </p>
+            </div>
+
+            <div class="col-lg-4 text-lg-end">
+              <a href="#dishes" class="btn btn-dark rounded-pill px-4 py-3">
+                Explore the five dishes ↗
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+<!-- ABOUT US -->
+<section class="section-pad about-section" id="about-us">
+  <div class="container">
+
+    <div class="text-center about-intro reveal mb-5">
+      <div class="section-kicker">Meet the people behind the project</div>
+
+      <h2 class="section-title mb-4">
+        10 minds.<br>
+        One <span style="color: var(--green)">shared passion.</span>
+      </h2>
+
+      <p class="section-intro">
+        We are a team of ten students who came together to celebrate
+        the rich culinary heritage of CALABARZON. Through this website,
+        we aim to introduce local delicacies, share their stories, and
+        encourage people to appreciate the flavors and traditions of
+        the Philippines.
+      </p>
     </div>
 
-</body>
+    <!-- TEN GROUP MEMBERS -->
+    <div class="row g-4 mb-5">
 
+      <!-- MEMBER 1 -->
+      <div class="col-sm-6 col-lg-4 reveal">
+        <article class="member-card">
+          <div class="member-photo">
+            <img
+              src="images/image1.jpg"
+              alt="Photo of Group Member 1"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+
+            <div class="member-placeholder" style="display:none">
+              <div class="camera">＋</div>
+              <strong>Add Member 1 Photo</strong>
+              <small>images/image1.jpg</small>
+            </div>
+          </div>
+
+          <div class="member-info">
+            <h3>Assigned to: Christopher Bandiano</h3>
+            <span class="member-role"> Introduces CALABARZON and its food culture.</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- MEMBER 2 -->
+      <div class="col-sm-6 col-lg-4 reveal delay-1">
+        <article class="member-card">
+          <div class="member-photo">
+            <img
+              src="images/image2.jpg"
+              alt="Photo of Group Member 2"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+
+            <div class="member-placeholder" style="display:none">
+              <div class="camera">＋</div>
+              <strong>Add Member 2 Photo</strong>
+              <small>images/image2.jpg</small>
+            </div>
+          </div>
+
+          <div class="member-info">
+            <h3>Assigned to: Fridz Gian Gamez and Gabrielle Magsisi</h3>
+            <span class="member-role">Research and write about the famous foods and delicacies of Cavite.</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- MEMBER 3 -->
+      <div class="col-sm-6 col-lg-4 reveal delay-2">
+        <article class="member-card">
+          <div class="member-photo">
+            <img
+              src="images/image3.jpg"
+              alt="Photo of Group Member 3"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+
+            <div class="member-placeholder" style="display:none">
+              <div class="camera">＋</div>
+              <strong>Add Member 3 Photo</strong>
+              <small>images/image3.jpg</small>
+            </div>
+          </div>
+
+          <div class="member-info">
+            <h3>Assigned to:  Bien Ortiz and Joshua Gunita</h3>
+            <span class="member-role">Research and write about the famous foods and delicacies of Laguna.</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- MEMBER 4 -->
+       <div class="col-sm-6 col-lg-4 reveal delay-2">
+        <article class="member-card">
+          <div class="member-photo">
+            <img
+              src="images/image4.jpg"
+              alt="Photo of Group Member 4"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+
+            <div class="member-placeholder" style="display:none">
+              <div class="camera">＋</div>
+              <strong>Add Member 4 Photo</strong>
+              <small>images/image4.jpg</small>
+            </div>
+          </div>
+
+          <div class="member-info">
+            <h3>Assigned to: Mhike Morillo & Junos Luna</h3>
+            <span class="member-role">Research and write about the famous foods and delicacies of Batangas.</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- MEMBER 5 -->
+       <div class="col-sm-6 col-lg-4 reveal delay-2">
+        <article class="member-card">
+          <div class="member-photo">
+            <img
+              src="images/image5.jpg"
+              alt="Photo of Group Member 5"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+
+            <div class="member-placeholder" style="display:none">
+              <div class="camera">＋</div>
+              <strong>Add Member 5 Photo</strong>
+              <small>images/image5.jpg</small>
+            </div>
+          </div>
+
+          <div class="member-info">
+            <h3>Assigned to: Alejandro Boglosa and Elisha Bernice Mabazza</h3>
+            <span class="member-role">Research and write about the famous foods and delicacies of Rizal.</span>
+          </div>
+        </article>
+      </div>
+
+       <div class="col-sm-6 col-lg-4 reveal delay-2">
+        <article class="member-card">
+          <div class="member-photo">
+            <img
+              src="images/image6.jpg"
+              alt="Photo of Group Member 6"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+
+            <div class="member-placeholder" style="display:none">
+              <div class="camera">＋</div>
+              <strong>Add Member 6 Photo</strong>
+              <small>images/image6.jpg</small>
+            </div>
+          </div>
+
+          <div class="member-info">
+            <h3>Assigned to: Reign Lappay</h3>
+            <span class="member-role">Research and write about the famous foods and delicacies of Quezon.</span>
+          </div>
+        </article>
+      </div>
+
+    </div>
+        </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- REFERENCES -->
+<section class="section-pad references-section" id="references">
+  <div class="container">
+
+    <div class="row align-items-end g-4 mb-5">
+      <div class="col-lg-8 reveal">
+        <div class="section-kicker">Sources and further reading</div>
+
+        <h2 class="section-title">
+          Rooted in research.<br>
+          <span style="color: var(--green)">Inspired by heritage.</span>
+        </h2>
+      </div>
+
+    <div class="row g-4">
+
+      <!-- REFERENCE 1 -->
+      <div class="col-md-6 col-lg-4 reveal">
+        <article class="reference-card">
+          <div class="reference-number">SOURCE 01</div>
+
+          <h3>Department of Agriculture — ATI Region IV-A</h3>
+
+          <p>
+            Regional farm tourism travel guide featuring the
+            agricultural products, local food, and culinary
+            attractions of CALABARZON.
+          </p>
+
+          <a
+            href="https://ati2.da.gov.ph/ati-4a/content/sites/default/files/2022-09/Agriculturally%20Awesome%20A%20Regional%20Farm%20Tourism%20Travel%20Guide%20vol.1.pdf"
+            target="_blank"
+            rel="noopener noreferrer">
+            Read the regional guide ↗
+          </a>
+        </article>
+      </div>
+
+      <!-- REFERENCE 2 -->
+      <div class="col-md-6 col-lg-4 reveal delay-1">
+        <article class="reference-card">
+          <div class="reference-number">SOURCE 02</div>
+
+          <h3>CALAX — Foodie Roadtrip</h3>
+
+          <p>
+            Information about regional food specialties, including
+            Pancit Pusit, Buko Pie, Puto Biñan, and other local
+            delicacies.
+          </p>
+
+          <a
+            href="https://www.calax.com.ph/tourism/foodie-roadtrip"
+            target="_blank"
+            rel="noopener noreferrer">
+            Explore the food guide ↗
+          </a>
+        </article>
+      </div>
+
+      <!-- REFERENCE 3 -->
+      <div class="col-md-6 col-lg-4 reveal delay-2">
+        <article class="reference-card">
+          <div class="reference-number">SOURCE 03</div>
+
+          <h3>Philippine News Agency</h3>
+
+          <p>
+            Article about the Department of Tourism's Kain Na!
+            culinary tourism initiative in CALABARZON and its
+            regional food specialties.
+          </p>
+
+          <a
+            href="https://www.pna.gov.ph/articles/1056113"
+            target="_blank"
+            rel="noopener noreferrer">
+            Read the news article ↗
+          </a>
+        </article>
+      </div>
+
+      <!-- REFERENCE 4 -->
+      <div class="col-md-6 col-lg-4 reveal">
+        <article class="reference-card">
+          <div class="reference-number">SOURCE 04</div>
+
+          <h3>National Museum of the Philippines</h3>
+
+          <p>
+            Background on traditional food wrappings and Filipino
+            culinary heritage, including Pancit Habhab and Suman.
+          </p>
+
+          <a
+            href="https://www.nationalmuseum.gov.ph/2022/04/30/traditional-food-wrappings-in-the-philippines/"
+            target="_blank"
+            rel="noopener noreferrer">
+            Read the museum article ↗
+          </a>
+        </article>
+      </div>
+
+      <!-- REFERENCE 5 -->
+      <div class="col-md-6 col-lg-4 reveal delay-1">
+        <article class="reference-card">
+          <div class="reference-number">SOURCE 05</div>
+
+          <h3>DENR CALABARZON</h3>
+
+          <p>
+            Official regional profile describing CALABARZON and
+            identifying its five provinces: Cavite, Laguna,
+            Batangas, Rizal, and Quezon.
+          </p>
+
+          <a
+            href="https://calabarzon.denr.gov.ph/regional-profile/"
+            target="_blank"
+            rel="noopener noreferrer">
+            View the regional profile ↗
+          </a>
+        </article>
+      </div>
+
+      <!-- REFERENCE 6 -->
+      <div class="col-md-6 col-lg-4 reveal delay-2">
+        <article class="reference-card">
+          <div class="reference-number">SOURCE 06</div>
+
+          <h3>Love the Philippines</h3>
+
+          <p>
+            Philippine tourism website serving as a reference for
+            the tourism inspiration and destination-discovery theme
+            of this project.
+          </p>
+
+          <a
+            href="https://philippines.travel/"
+            target="_blank"
+            rel="noopener noreferrer">
+            Visit the tourism website ↗
+          </a>
+        </article>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container d-flex flex-column flex-md-row
+                justify-content-between align-items-center gap-2">
+
+
+    </div>
+  </footer>
+
+  <!-- IMAGE LIGHTBOX -->
+  <div
+    class="image-lightbox"
+    id="imageLightbox"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Expanded cuisine photo"
+    aria-hidden="true"
+  >
+    <button
+      type="button"
+      class="lightbox-close"
+      id="lightboxClose"
+      aria-label="Close expanded image"
+    >&times;</button>
+
+    <img id="lightboxImage" src="" alt="Expanded cuisine photo">
+
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+
+  <!-- BOOTSTRAP JAVASCRIPT -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- SCROLL REVEAL AND IMAGE LIGHTBOX -->
+  <script>
+    // SCROLL REVEAL ANIMATION
+    const revealItems = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              obs.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      revealItems.forEach(item => observer.observe(item));
+    } else {
+      revealItems.forEach(item => item.classList.add("visible"));
+    }
+
+    // CUISINE PHOTO CLICK-TO-EXPAND
+    const lightbox = document.getElementById("imageLightbox");
+    const lightboxImage = document.getElementById("lightboxImage");
+    const lightboxCaption = document.getElementById("lightboxCaption");
+    const lightboxClose = document.getElementById("lightboxClose");
+
+    let previousFocus = null;
+
+    document.querySelectorAll(".dish-image img").forEach(img => {
+      img.addEventListener("click", () => {
+        // Do not open missing or hidden images
+        if (
+          img.style.display === "none" ||
+          !img.complete ||
+          img.naturalWidth === 0
+        ) {
+          return;
+        }
+
+        previousFocus = document.activeElement;
+
+        lightboxImage.src = img.src;
+        lightboxImage.alt = img.alt;
+        lightboxCaption.textContent = img.alt;
+
+        lightbox.classList.add("active");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+
+        lightboxClose.focus();
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove("active");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+
+      lightboxImage.src = "";
+
+      if (previousFocus) {
+        previousFocus.focus();
+      }
+    }
+
+    // Close using the X button
+    lightboxClose.addEventListener("click", closeLightbox);
+
+    // Close when clicking outside the image
+    lightbox.addEventListener("click", event => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    // Close by pressing Escape
+    document.addEventListener("keydown", event => {
+      if (
+        event.key === "Escape" &&
+        lightbox.classList.contains("active")
+      ) {
+        closeLightbox();
+      }
+    });
+  </script>
+
+</body>
 </html>
